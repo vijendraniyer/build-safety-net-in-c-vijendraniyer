@@ -18,8 +18,8 @@ enable_testing()
 add_compile_options("--coverage")
 add_executable(
   cleancode
-  StringCalculator.cpp
-  StringCalculator.Tests.cpp
+  Soundex.c
+  Soundex.Tests.cpp
 )
 target_link_libraries(
   cleancode
