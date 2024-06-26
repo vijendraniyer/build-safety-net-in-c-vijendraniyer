@@ -19,3 +19,11 @@ same encoding. Here are the rules for Soundex, per Wikipedia: [Soundex - Wikiped
   rule also applies to the first letter.
 - Stop when you have a letter and three digits. Zero-pad if needed.
 
+## The refactoring task
+- Cyclomatic complexity is high in a few places. This indicates potential to steadily increase, as customers ask for changes and new features. Reduce the cyclomatic complexity. In future, it must be possible to add new features with less code-changes and re-testing.
+
+- Code coverage is low, because the test code is incomplete. Write more tests to take care of the variations. Track and improve the coverage.
+
+- Uncovered lines indicate an opportunity to write tests. Complex and repetitive tests indicate opportunity to simplify the code.
+
+> Caution: High coverage doesn't indicate absence of bugs!
