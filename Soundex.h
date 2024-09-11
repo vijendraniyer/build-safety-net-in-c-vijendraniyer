@@ -35,16 +35,10 @@ char getSoundexCode(char c) {
     };
 
     // Convert character to uppercase if it is a lowercase letter
-    if (islower(c)) {
-        c = toupper(c);
-    }
+    c = toupper(c);
 
-    // Check if the character is between 'A' and 'Z'
-    if (c >= 'A' && c <= 'Z') {
-        return soundexTable[c - 'A'];
-    }
-    
-    return '0'; // For non-alphabetic characters
+    // Check if the character is within 'A' to 'Z' range
+    return (c >= 'A' && c <= 'Z') ? soundexTable[c - 'A'] : '0';
 }
 
 // Initialization function
