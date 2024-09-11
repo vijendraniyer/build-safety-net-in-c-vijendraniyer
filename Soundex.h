@@ -5,19 +5,37 @@
 #include <string.h>
 
 char getSoundexCode(char c) {
-    static const char soundexTable[256] = {
-        ['A'] = '0', ['B'] = '1', ['C'] = '2', ['D'] = '3', ['E'] = '0', ['F'] = '1',
-        ['G'] = '2', ['H'] = '0', ['I'] = '0', ['J'] = '1', ['K'] = '2', ['L'] = '4',
-        ['M'] = '5', ['N'] = '5', ['O'] = '0', ['P'] = '1', ['Q'] = '1', ['R'] = '2',
-        ['S'] = '2', ['T'] = '3', ['U'] = '0', ['V'] = '1', ['W'] = '0', ['X'] = '2',
-        ['Y'] = '0', ['Z'] = '2'
+    static const char soundexTable[26] = {
+        '0', // A
+        '1', // B
+        '2', // C
+        '3', // D
+        '0', // E
+        '1', // F
+        '2', // G
+        '0', // H
+        '0', // I
+        '1', // J
+        '2', // K
+        '0', // L
+        '5', // M
+        '0', // N
+        '0', // O
+        '1', // P
+        '0', // Q
+        '2', // R
+        '0', // S
+        '3', // T
+        '0', // U
+        '1', // V
+        '0', // W
+        '2', // X
+        '0', // Y
+        '2'  // Z
     };
 
-    // Convert character to uppercase if it is a lowercase letter
-    c = toupper(c);
-    
-    // Return the corresponding soundex code or '0' for non-alphabetic characters
-    return (c >= 'A' && c <= 'Z') ? soundexTable[(unsigned char)c] : '0';
+    c = toupper(c); // Convert character to uppercase
+    return (c >= 'A' && c <= 'Z') ? soundexTable[c - 'A'] : '0';
 }
 
 // Initialization function
