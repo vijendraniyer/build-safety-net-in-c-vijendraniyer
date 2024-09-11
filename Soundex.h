@@ -34,28 +34,22 @@ char getSoundexCode(char c) {
         '2'  // Z
     };
 
-    // Convert character to uppercase if it is a lowercase letter
-    c = toupper(c);
-
-    // Check if the character is within 'A' to 'Z' range
+    c = toupper(c); // Convert character to uppercase
     return (c >= 'A' && c <= 'Z') ? soundexTable[c - 'A'] : '0';
 }
 
 // Initialization function
 void initializeSoundex(char *soundex, char firstChar) {
     soundex[0] = toupper(firstChar);
-    for (int i = 1; i < 4; i++) {
-        soundex[i] = '0';
-    }
+    memset(soundex + 1, '0', 3); // Set the rest of the soundex string to '0'
     soundex[4] = '\0';
 }
 
 // Processing function
 void processName(const char *name, char *soundex) {
-    int len = strlen(name);
     int sIndex = 1;
 
-    for (int i = 1; i < len && sIndex < 4; i++) {
+    for (int i = 1; name[i] && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
         if (code != '0' && code != soundex[sIndex - 1]) {
             soundex[sIndex++] = code;
