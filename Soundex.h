@@ -24,8 +24,8 @@ void initializeSoundex(char *soundex, char firstChar) {
 void processName(const char *name, char *soundex) {
     int sIndex = 1;
 
-    for (int i = 1; name[i] && sIndex < 4; i++) {
-        char code = getSoundexCode(name[i]);
+    for (int cIndex = 1; name[cIndex] && sIndex < 4; cIndex++) {
+        char code = getSoundexCode(name[cIndex]);
         if (code != '0' && code != soundex[sIndex - 1]) {
             soundex[sIndex++] = code;
         }
