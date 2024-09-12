@@ -22,9 +22,9 @@ void initializeSoundex(char *soundex, char firstChar) {
 
 // Processing function
 void processName(const char *name, char *soundex) {
-    int sIndex = 1;
+    int sIndex = 1, cIndex = 1;
 
-    for (int cIndex = 1; name[cIndex] && sIndex < 4; cIndex++) {
+    for (cIndex = 1; name[cIndex] && sIndex < 4; cIndex++) {
         char code = getSoundexCode(name[cIndex]);
         if (code != '0' && code != soundex[sIndex - 1]) {
             soundex[sIndex++] = code;
