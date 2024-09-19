@@ -18,6 +18,7 @@ enable_testing()
 add_compile_options("--coverage")
 add_executable(
   cleancode
+  Soundex.cpp
   Soundex.Tests.cpp
 )
 target_link_libraries(
